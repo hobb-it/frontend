@@ -1,7 +1,11 @@
 import React from 'react';
 import { useCookies } from 'react-cookie';
 
-function LogoutButton() {
+interface Props {
+    className?: string;
+}
+
+function LogoutButton({className}: Props) {
 
     const [cookies, setCookie, removeCookie] = useCookies(['id_token']);
 
@@ -10,7 +14,7 @@ function LogoutButton() {
     }
 
     return (
-        <button onClick={deleteToken}>Logout</button>
+        <button onClick={deleteToken} className={className}>Logout</button>
     );
 };
 
