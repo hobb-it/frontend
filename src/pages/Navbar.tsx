@@ -25,7 +25,7 @@ const Layout = () => {
               }
               {cookies.id_token?.length > 0 && 
                 <li className='nav-item'>
-                  <Link to="/profile" className='nav-link'>Profilo</Link>
+                  <Link to="/dashboard" className='nav-link'>Dashboard</Link>
                 </li>
               }             
               {cookies.id_token?.length > 0 &&

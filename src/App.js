@@ -17,7 +17,7 @@ function App() {
             <Route path="/" element={<Navbar />}>
             <Route index element={<Home />} />
             <Route path="login" element={<LoginPage />} />
-            <Route path="profile" element={<DashboardPage />} />
+            <Route path="dashboard" element={<DashboardPage />} />
             <Route path="*" element={<NoPage />} />
           </Route>
           </Routes>
