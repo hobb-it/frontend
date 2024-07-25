@@ -53,7 +53,7 @@ function DashboardPage() {
         <div id="hobbyCardContainer">
           {error && <p>Error: {error}</p>}
           {hobbyCards.map((hobbyCard : any, index) => (
-            <div key={index} className="card container-fluid">
+            <div key={index} className="container">
               <HobbyCard  hobbyCard={hobbyCard} />
             </div> 
           ))}
