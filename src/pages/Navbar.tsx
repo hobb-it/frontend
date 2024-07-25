@@ -18,9 +18,14 @@ const Layout = () => {
               <li className='nav-item active'>
                 <Link to="/" className='nav-link'>Home</Link>
               </li>
+              {!(cookies.id_token?.length > 0) && 
+                <li className='nav-item'>
+                  <Link to="/login" className='nav-link'>Login</Link>
+                </li>
+              }
               {cookies.id_token?.length > 0 && 
                 <li className='nav-item'>
-                  <Link to="/profile" className='nav-link'>Profile</Link>
+                  <Link to="/profile" className='nav-link'>Profilo</Link>
                 </li>
               }             
               {cookies.id_token?.length > 0 &&

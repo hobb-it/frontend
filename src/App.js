@@ -4,6 +4,7 @@ import Navbar from "./pages/Navbar";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import NoPage from "./pages/NoPage";
+import LoginPage from "./pages/LoginPage";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navbar />}>
             <Route index element={<Home />} />
+            <Route path="login" element={<LoginPage />} />
             <Route path="profile" element={<Profile />} />
             <Route path="*" element={<NoPage />} />
           </Route>

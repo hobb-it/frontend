@@ -24,13 +24,14 @@ function LoginForm({flow}: Props) {
     const implicitLogin = (credentialResponse : CredentialResponse) => {
         let token = credentialResponse.credential;
         setCookie("id_token", token);
-        console.log(token);
     }
 
     return (
-        <div>
-            {flow === 'auth-code' && <LoginButton onClick={() => codeLogin()} text={"Sign in with Google 🚀"}></LoginButton>}
-            {flow === 'implicit' && <GoogleLogin onSuccess={implicitLogin} ></GoogleLogin>}
+        <div className='row justify-content-center'>
+            <div className='col-auto'>
+                {flow === 'auth-code' && <LoginButton onClick={() => codeLogin()} text={"Sign in with Google 🚀"}></LoginButton>}
+                {flow === 'implicit' && <GoogleLogin onSuccess={implicitLogin}></GoogleLogin>}
+            </div>
         </div>
     );
 };

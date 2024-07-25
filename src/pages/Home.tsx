@@ -1,4 +1,3 @@
-import LoginForm from '../components/LoginForm';
 import { useCookies } from 'react-cookie';
 
 function Home() {
@@ -58,7 +57,7 @@ function Home() {
           <p className="lead">
               Non aspettate oltre! Iscrivetevi a Hobb.it e iniziate a esplorare il meraviglioso mondo degli hobby. Che siate alla ricerca di un modo per rilassarvi, per esprimere la vostra creatività o per imparare qualcosa di nuovo, Hobb.it è il posto giusto per voi.
           </p>
-          <a href="#" className="btn btn-primary btn-lg mt-3">Unitevi a noi</a>
+          <a href="/login" className="btn btn-primary btn-lg mt-3">Unitevi a noi</a>
       </div>
   </div>
         
