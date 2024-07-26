@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./pages/Navbar";
 import Home from "./pages/Home";
-import Profile from "./pages/Profile";
+import DashboardPage from "./pages/DashboardPage";
 import NoPage from "./pages/NoPage";
 import LoginPage from "./pages/LoginPage";
 import { GoogleOAuthProvider } from '@react-oauth/google';
@@ -17,7 +17,7 @@ function App() {
             <Route path="/" element={<Navbar />}>
             <Route index element={<Home />} />
             <Route path="login" element={<LoginPage />} />
-            <Route path="profile" element={<Profile />} />
+            <Route path="dashboard" element={<DashboardPage />} />
             <Route path="*" element={<NoPage />} />
           </Route>
           </Routes>

@@ -16,7 +16,7 @@ function LoginPage() {
                     <p>Per accedere a tutte le funzionalità offerte della nostra piattaforma, ti consigliamo di accedere con Google.</p>
                 </div>
                 {!(cookies.id_token?.length > 0) && <LoginForm flow="implicit"/>}
-                {cookies.id_token?.length > 0 && <Navigate to="/profile"/>}
+                {cookies.id_token?.length > 0 && <Navigate to="/dashboard"/>}
             </div>
         </>
     );
