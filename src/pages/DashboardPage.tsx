@@ -9,10 +9,11 @@ function DashboardPage() {
   const [cookies] = useCookies(['id_token']);
   const [hobbyCards, setHobbyCards] = useState([""]);
   const [error, setError] = useState(null);
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   const getHobbyCards = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/hobbycard/all", {
+      const response = await fetch(`${backendUrl}/api/hobbycard/all`, {
           method: 'GET',
           headers: {
               'Content-Type': 'application/json',
@@ -22,6 +23,7 @@ function DashboardPage() {
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
+      console.log(response)
       const _hobbyCards = await response.json();
       return _hobbyCards;
     } catch (error : any) {
