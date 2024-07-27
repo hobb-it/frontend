@@ -9,6 +9,7 @@ interface Props {
 
 function DashboardSearchbar({cookies, setHobbyCards, setError}: Props) {
     const [search, setSearch] = useState('');
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
@@ -16,7 +17,7 @@ function DashboardSearchbar({cookies, setHobbyCards, setError}: Props) {
 
     const fetchHobbyCardsOfCategory = async () => {
         try {
-            let response = await fetch(`http://localhost:8080/api/hobbycard/all?categoryName=${search}`, {
+            let response = await fetch(`${backendUrl}/api/hobbycard/all?categoryName=${search}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
