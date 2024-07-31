@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { useCookies } from 'react-cookie';
 
 interface Props {
-    cookies: any;
     setHobbyCards: any;
     setError: any;
 }
 
-function DashboardSearchbar({cookies, setHobbyCards, setError}: Props) {
+function DashboardSearchbar({setHobbyCards, setError}: Props) {
     const [search, setSearch] = useState('');
     const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -21,7 +19,7 @@ function DashboardSearchbar({cookies, setHobbyCards, setError}: Props) {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${cookies.id_token}`,
+                    'Authorization': `Bearer ${window.localStorage.getItem('id_token')}`,
                 }  
             })
             if (!response.ok) {

@@ -7,10 +7,11 @@ interface Props {
 
 function LogoutButton({className}: Props) {
 
-    const [cookies, setCookie, removeCookie] = useCookies(['id_token']);
-
     const deleteToken = () => {
-        removeCookie('id_token');
+        window.localStorage.removeItem('id_token');
+        window.localStorage.removeItem('access_token');
+        window.localStorage.removeItem('refresh_token');
+        window.location.href = "http://localhost:3000/"
     }
 
     return (
