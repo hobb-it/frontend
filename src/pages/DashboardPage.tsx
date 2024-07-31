@@ -6,10 +6,11 @@ import DashboardSearchbar from '../components/DashboardSearchbar';
 
 function DashboardPage() {
 
-  const [cookies] = useCookies(['id_token']);
   const [hobbyCards, setHobbyCards] = useState([""]);
   const [error, setError] = useState(null);
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  // const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  const backendUrl = "http://localhost:8080";
+
 
   const getHobbyCards = async () => {
     try {
@@ -17,7 +18,7 @@ function DashboardPage() {
           method: 'GET',
           headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${cookies.id_token}`
+              'Authorization': `Bearer ${window.localStorage.getItem('id_token')}`
           }
       });
       if (!response.ok) {
@@ -38,7 +39,7 @@ function DashboardPage() {
       })
   }, []);
 
-  if(!cookies.id_token) {
+  if(!window.localStorage.getItem('id_token')) {
     return (<Navigate to="/" replace={true}/>)
   }
 
@@ -51,7 +52,7 @@ function DashboardPage() {
         <p className='col-auto'>Qui puoi visualizzare le proposte di insegnamento degli altri utenti.</p>
       </div>
       <div className='container'>
-        {<DashboardSearchbar cookies={cookies} setHobbyCards={setHobbyCards} setError={setError}/>}
+        {<DashboardSearchbar setHobbyCards={setHobbyCards} setError={setError}/>}
         <div id="hobbyCardContainer">
           {error && <p>Error: {error}</p>}
           {hobbyCards.map((hobbyCard : any, index) => (

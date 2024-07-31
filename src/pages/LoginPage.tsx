@@ -1,11 +1,8 @@
 import React from 'react';
-import { useCookies } from 'react-cookie';
 import LoginForm from '../components/LoginForm';
 import { Navigate } from 'react-router-dom';
 
 function LoginPage() {
-
-    const [cookies] = useCookies(['id_token']);
 
     return (
         <>
@@ -15,8 +12,8 @@ function LoginPage() {
                     <p className="lead">La Vostra Porta verso Nuovi Orizzonti di Creatività!</p>
                     <p>Per accedere a tutte le funzionalità offerte della nostra piattaforma, ti consigliamo di accedere con Google.</p>
                 </div>
-                {!(cookies.id_token?.length > 0) && <LoginForm flow="implicit"/>}
-                {cookies.id_token?.length > 0 && <Navigate to="/dashboard"/>}
+                {!window.localStorage.getItem("id_token") && <LoginForm flow="auth-code"/>}
+                {window.localStorage.getItem("id_token") && <Navigate to="/dashboard"/>}
             </div>
         </>
     );

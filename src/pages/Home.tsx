@@ -1,8 +1,4 @@
-import { useCookies } from 'react-cookie';
-
 function Home() {
-
-  const [cookies] = useCookies(['id_token']);
 
     return (<div className="container mt-5">
       <div className="text-center">
