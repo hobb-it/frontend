@@ -2,7 +2,7 @@ import HobbyCard from "../components/HobbyCard";
 import { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import DashboardSearchbar from "../components/DashboardSearchbar";
-import isUserLoggedIn from "../utils/session"
+import { isUserLoggedIn } from "../utils/session";
 
 function DashboardPage() {
   const [hobbyCards, setHobbyCards] = useState([""]);

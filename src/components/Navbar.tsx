@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import LogoutButton from "../components/LogoutButton";
-import isUserLoggedIn from "../utils/session";
+import { isUserLoggedIn } from "../utils/session";
 
 const Layout: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

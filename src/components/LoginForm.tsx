@@ -5,6 +5,7 @@ import {
   CredentialResponse,
 } from "@react-oauth/google";
 import LoginButton from "./LoginButton";
+import { setTimeoutForRefreshAccessToken } from "../utils/session";
 
 interface Props {
   flow: string;
@@ -31,6 +32,7 @@ function LoginForm({ flow }: Props) {
         window.localStorage.setItem("username", data.username);
         window.localStorage.setItem("name", data.name);
         window.localStorage.setItem("surname", data.surname);
+        setTimeoutForRefreshAccessToken(+data.expires_in - 30);
         window.location.href = "http://localhost:3000/dashboard";
       });
     },
