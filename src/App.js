@@ -1,6 +1,6 @@
-import "./App.css";
+import "./styles/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./pages/Navbar";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import DashboardPage from "./pages/DashboardPage";
 import NoPage from "./pages/NoPage";
