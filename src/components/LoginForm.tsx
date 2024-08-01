@@ -21,6 +21,9 @@ function LoginForm({ flow }: Props) {
       // console.log(`Auth code: ${auth}`);
 
       exchangeAuthCode(auth).then((data) => {
+        if (data.length == 0) {
+          return;
+        }
         window.localStorage.setItem("access_token", data.access_token);
         window.localStorage.setItem("id_token", data.id_token);
         window.localStorage.setItem("refresh_token", data.refresh_token);
