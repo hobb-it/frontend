@@ -21,3 +21,5 @@ Run
 `docker run --name hobbit_frontend --rm -e REACT_APP_BACKEND_URL=http://151.33.54.71:8080 -p 3000:3000 hobbit-frontend`
 
 NOT CURRENTLY WORKING, localhost IN DOCKER IS NOT localhost ON YOUR MACHINE
+
+## [Generate a new Icon](https://favicon.io/favicon-generator/)
