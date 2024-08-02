@@ -7,37 +7,33 @@ interface Props {
 
 function HobbyCard({ hobbyCard }: Props) {
   return (
-    <>
-      <div className="container hobbyCard">
-        <div className="row align-items-center">
-          <p className="col-12 col-sm-3 hobbycard-head">Categoria</p>
-          <p className="col-12 col-sm-9 hobbycard-data">
-            {hobbyCard.categoryName}
-          </p>
-        </div>
-        <div className="row align-items-center">
-          <p className="col-12 col-sm-3 hobbycard-head">Username</p>
-          <p className="col-12 col-sm-9 hobbycard-data">{hobbyCard.username}</p>
-        </div>
-        <div className="row align-items-center">
-          <p className="col-12 col-sm-3 hobbycard-head">Descrizione</p>
-          <p className="col-12 col-sm-9 hobbycard-data">
-            {hobbyCard.description}
-          </p>
-        </div>
-        <div className="row align-items-center">
-          <p className="col-12 col-sm-3 hobbycard-head">Contatti</p>
-          <p className="col-12 col-sm-9 hobbycard-data">{hobbyCard.contacts}</p>
-        </div>
-        <div className="row">
-          <div className="col-12 align-items-center my-1">
-            <Link to="/book/lesson" className="btn btn-outline-success">
-              Prenota una lezione
-            </Link>
+    <div className="col-12 col-md-6 col-lg-4 mb-4">
+      <div className="card shadow-lg">
+        <div className="card-body">
+          <h4 className="card-title text-left mb-3 border-bottom pb-2">{hobbyCard.categoryName}</h4>
+          <div className="row yellow-100">
+            <h5 className="col-12 font-weight-bold text-left">Username</h5>
+            <span className="col-12 text-left">{hobbyCard.username}</span>
+          </div>
+          <hr />
+          <div className="row text-left">
+            <h5 className="col-12 font-weight-bold text-left fs-5">Descrizione</h5>
+            <span className="col-12 text-left">{hobbyCard.description}</span>
+          </div>
+          <hr />
+          <div className="row">
+            <h5 className="col-12 font-weight-bold text-left">Contatti</h5>
+            <span className="col-12 text-left">{hobbyCard.contacts}</span>
+          </div>
+          <hr />
+          <div className="row">
+            <div className="col-12 text-left">
+              <Link to="#" className="btn btn-success">Modifica Hobby Card</Link>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
