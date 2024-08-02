@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import DashboardPage from "./pages/DashboardPage";
 import NoPage from "./pages/NoPage";
 import LoginPage from "./pages/LoginPage";
-import ProfilePage from "./pages/ProfilePage"
+import ProfilePage from "./pages/ProfilePage";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
