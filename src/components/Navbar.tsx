@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
-import LogoutButton from "../components/LogoutButton";
+import LogoutButton from "./LogoutButton";
 import isUserLoggedIn from "../utils/session";
 
 const Layout: React.FC = () => {
