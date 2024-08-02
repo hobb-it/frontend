@@ -7,8 +7,7 @@ import isUserLoggedIn from "../utils/session"
 function DashboardPage() {
   const [hobbyCards, setHobbyCards] = useState([""]);
   const [error, setError] = useState(null);
-  // const backendUrl = process.env.REACT_APP_BACKEND_URL;
-  const backendUrl = "http://localhost:8080";
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   const getHobbyCards = async () => {
     try {
