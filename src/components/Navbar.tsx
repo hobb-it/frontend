@@ -19,7 +19,7 @@ const Layout: React.FC = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand m-3" href="#">
+        <a className="navbar-brand p-3 fs-2" href="/home">
           Hobb.it
         </a>
         <button
@@ -28,6 +28,8 @@ const Layout: React.FC = () => {
           onClick={toggleNavbar}
           aria-controls="navbarSupportedContent"
           aria-expanded={isOpen ? "true" : "false"}
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
