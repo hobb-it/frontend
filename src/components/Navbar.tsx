@@ -41,7 +41,7 @@ const Layout: React.FC = () => {
         >
           <ul className="navbar-nav mr-auto my-custom-center">
             <li className="nav-item active fs-4">
-              <Link to="/" className="btn btn-light nav-link" onClick={handleNavItemClick}>
+              <Link to="/" className="btn btn-warning nav-link" onClick={handleNavItemClick}>
                 Home
               </Link>
             </li>
@@ -51,7 +51,7 @@ const Layout: React.FC = () => {
               >
                 <Link
                   to="/login"
-                  className="btn btn-light nav-link"
+                  className="btn btn-warning nav-link"
                   onClick={handleNavItemClick}
                 >
                   Login
@@ -63,7 +63,7 @@ const Layout: React.FC = () => {
                 <li className="nav-item fs-4">
                   <Link
                     to="/dashboard"
-                    className="btn btn-light nav-link"
+                    className="btn btn-warning nav-link"
                     onClick={handleNavItemClick}
                   >
                     Dashboard
@@ -72,7 +72,7 @@ const Layout: React.FC = () => {
                 <li className="nav-item fs-4">
                   <Link
                     to="/profile"
-                    className="btn btn-light nav-link"
+                    className="btn btn-warning nav-link"
                     onClick={handleNavItemClick}
                   >
                     Profile

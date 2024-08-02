@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 
 interface Props {
   hobbyCard: any;
+  buttonText: string; // Aggiunta prop per il testo del bottone
+  buttonLink: string; // Aggiunta prop per l'URL del bottone
 }
 
-function HobbyCard({ hobbyCard }: Props) {
+function HobbyCard({ hobbyCard, buttonText, buttonLink }: Props) {
   return (
     <div className="col-12 col-md-6 col-lg-4 mb-4">
       <div className="card shadow-lg">
@@ -28,7 +30,7 @@ function HobbyCard({ hobbyCard }: Props) {
           <hr />
           <div className="row">
             <div className="col-12 text-left">
-              <Link to="#" className="btn btn-success">Modifica Hobby Card</Link>
+              <Link to={buttonLink} className="btn btn-success">{buttonText}</Link>
             </div>
           </div>
         </div>

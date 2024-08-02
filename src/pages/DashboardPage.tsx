@@ -1,70 +1,72 @@
-import HobbyCard from "../components/HobbyCard";
-import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
-import DashboardSearchbar from "../components/DashboardSearchbar";
-import isUserLoggedIn from "../utils/session"
+import React, { useState, useEffect } from "react";
+import HobbyCardList from "../components/HobbyCardList";
+
+interface HobbyCard {
+  categoryName: string;
+  description: string;
+  username: string;
+}
 
 function DashboardPage() {
-  const [hobbyCards, setHobbyCards] = useState([""]);
-  const [error, setError] = useState(null);
+  const [hobbyCards, setHobbyCards] = useState<HobbyCard[]>([]);
+  const [displayCards, setDisplayCards] = useState<HobbyCard[]>([]);
+  const [error, setError] = useState("");
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
-
-  const getHobbyCards = async () => {
-    try {
-      const response = await fetch(`${backendUrl}/api/hobbycard/all`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${window.localStorage.getItem("id_token")}`,
-        },
-      });
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      console.log(response);
-      const _hobbyCards = await response.json();
-      return _hobbyCards;
-    } catch (error: any) {
-      setError(error.message);
-      return [];
-    }
-  };
+  const email = window.localStorage.getItem("email");
 
   useEffect(() => {
-    getHobbyCards().then((data) => {
-      setHobbyCards(data);
-    });
+    const fetchHobbies = async () => {
+      setError("");
+      try {
+        const response = await fetch(
+          `${backendUrl}/api/hobbycard/all`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${window.localStorage.getItem(
+                "id_token"
+              )}`,
+            },
+          }
+        );
+        if (!response.ok) throw new Error("Failed to fetch data");
+        const _hobbyCards = (await response.json()) as HobbyCard[];
+        setHobbyCards(_hobbyCards);
+        setDisplayCards(_hobbyCards);
+      } catch (error: any) {
+        setError(error.message);
+      }
+    };
+
+    fetchHobbies();
   }, []);
 
-  if (!isUserLoggedIn()) {
-    return <Navigate to="/" replace={true} />;
-  }
+  const handleFilterChange = (filter: string) => {
+    const filterLowerCase = filter.toLowerCase();
+    const filteredCards = hobbyCards.filter(
+      (card) =>
+        card.categoryName.toLowerCase().includes(filterLowerCase) ||
+        card.description.toLowerCase().includes(filterLowerCase)
+    );
+    setDisplayCards(filteredCards);
+  };
 
   return (
-    <div className="container-fluid">
-      <div className="row justify-content-center">
-        <h1 className="col-auto">Dashboard</h1>
-      </div>
-      <div className="row justify-content-center">
-        <p className="col-auto">
-          Qui puoi visualizzare le proposte di insegnamento degli altri utenti.
-        </p>
-      </div>
-      <div className="container">
-        {
-          <DashboardSearchbar
-            setHobbyCards={setHobbyCards}
-            setError={setError}
-          />
-        }
-        <div id="hobbyCardContainer">
-          {error && <p>Error: {error}</p>}
-          {hobbyCards.map((hobbyCard: any, index) => (
-            <div key={index} className="container">
-              <HobbyCard hobbyCard={hobbyCard} />
-            </div>
-          ))}
-        </div>
+    <div className="bg-light pt-1 pb-5 px-5 text-center shadow">
+      <h1 className="display-4">Dashboard</h1>
+      <span className="fs-5 text-muted">
+        Sceli il tuo Hobby Preferito!
+      </span>
+      <div id="hobbyCardContainer" className="row">
+        <HobbyCardList
+          hobbyCards={hobbyCards}
+          displayCards={displayCards}
+          error={error}
+          onFilterChange={handleFilterChange}
+          buttonText={'Contatta Esperto'}
+          buttonLink={'booksession/'}
+        />
       </div>
     </div>
   );

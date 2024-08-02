@@ -58,12 +58,14 @@ function ProfilePage() {
       <span className="fs-5 text-muted">
         Qua puoi trovare tutte le tue Hobby Card
       </span>
-      <div id="hobbyCardContainer" className="row mt-4">
+      <div id="hobbyCardContainer" className="row">
         <HobbyCardList
           hobbyCards={hobbyCards}
           displayCards={displayCards}
           error={error}
           onFilterChange={handleFilterChange}
+          buttonText={'Modifica Hobby Card'}
+          buttonLink={'modify/'}
         />
       </div>
     </div>

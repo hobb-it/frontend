@@ -71,7 +71,8 @@
 }
 
 .my-nav-bar {
-  background-image: linear-gradient(to left, #f8d3b6, #edbb8e, #e4a466);
+  /* background-image: linear-gradient(to left, #f8d3b6, #edbb8e, #e4a466); */
   width: 100%;
+  background-color: #f7ba4f;
 }
 

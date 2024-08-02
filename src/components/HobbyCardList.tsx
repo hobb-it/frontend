@@ -1,6 +1,6 @@
-import React from 'react';
-import HobbyCardComponent from './HobbyCard'; // Assicurati che il percorso sia corretto
-import SearchBar from './SearchBar'
+import React from "react";
+import HobbyCardComponent from "./HobbyCard"; // Assicurati che il percorso sia corretto
+import SearchBar from "./SearchBar";
 
 interface HobbyCard {
   categoryName: string;
@@ -13,9 +13,18 @@ interface HobbyCardListProps {
   displayCards: HobbyCard[];
   error: string;
   onFilterChange: (filter: string) => void;
+  buttonText: string;
+  buttonLink: string;
 }
 
-const HobbyCardList: React.FC<HobbyCardListProps> = ({ hobbyCards, displayCards, error, onFilterChange }) => {
+const HobbyCardList: React.FC<HobbyCardListProps> = ({
+  hobbyCards,
+  displayCards,
+  error,
+  onFilterChange,
+  buttonText,
+  buttonLink
+}) => {
   return (
     <div>
       <SearchBar onChangeFilter={onFilterChange} />
@@ -27,7 +36,12 @@ const HobbyCardList: React.FC<HobbyCardListProps> = ({ hobbyCards, displayCards,
         )}
         {displayCards.length > 0 ? (
           displayCards.map((hobbyCard, index) => (
-            <HobbyCardComponent key={index} hobbyCard={hobbyCard} />
+            <HobbyCardComponent
+              key={index}
+              hobbyCard={hobbyCard}
+              buttonText={buttonText}
+              buttonLink={buttonLink}
+            />
           ))
         ) : (
           <div className="d-flex justify-content-center align-items-center w-100">
