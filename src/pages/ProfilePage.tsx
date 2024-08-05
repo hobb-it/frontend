@@ -1,7 +1,3 @@
-import HobbyCard from "../components/HobbyCard";
-import { Navigate } from "react-router-dom";
-import DashboardSearchbar from "../components/DashboardSearchbar";
-import { isUserLoggedIn } from "../utils/session";
 import React, { useState, useEffect } from "react";
 import HobbyCardList from "../components/HobbyCardList";
 
@@ -11,19 +7,19 @@ interface HobbyCard {
   username: string;
 }
 
-function DashboardPage() {
+function ProfilePage() {
   const [hobbyCards, setHobbyCards] = useState<HobbyCard[]>([]);
   const [displayCards, setDisplayCards] = useState<HobbyCard[]>([]);
   const [error, setError] = useState("");
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
-  const email = window.localStorage.getItem("email");
+  const username = window.localStorage.getItem("username");
 
   useEffect(() => {
     const fetchHobbies = async () => {
       setError("");
       try {
         const response = await fetch(
-          `${backendUrl}/api/hobbycard/all`,
+          `${backendUrl}/api/hobbycard/all?username=${username}`,
           {
             method: "GET",
             headers: {
@@ -58,9 +54,9 @@ function DashboardPage() {
 
   return (
     <div className="bg-light pt-1 pb-5 px-5 text-center shadow">
-      <h1 className="display-4">Dashboard</h1>
+      <h1 className="display-4">Il Mio Profilo</h1>
       <span className="fs-5 text-muted">
-        Sceli il tuo Hobby Preferito!
+        Qua puoi trovare tutte le tue Hobby Card
       </span>
       <div id="hobbyCardContainer" className="row">
         <HobbyCardList
@@ -68,12 +64,12 @@ function DashboardPage() {
           displayCards={displayCards}
           error={error}
           onFilterChange={handleFilterChange}
-          buttonText={'Contatta Esperto'}
-          buttonLink={'booksession/'}
+          buttonText={'Modifica Hobby Card'}
+          buttonLink={'modify/'}
         />
       </div>
     </div>
   );
 }
 
-export default DashboardPage;
+export default ProfilePage;
