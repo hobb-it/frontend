@@ -15,6 +15,7 @@ interface HobbyCardListProps {
   onFilterChange: (filter: string) => void;
   buttonText: string;
   buttonLink: string;
+  hideFields?: boolean;
 }
 
 const HobbyCardList: React.FC<HobbyCardListProps> = ({
@@ -23,7 +24,8 @@ const HobbyCardList: React.FC<HobbyCardListProps> = ({
   error,
   onFilterChange,
   buttonText,
-  buttonLink
+  buttonLink,
+  hideFields
 }) => {
   return (
     <div>
@@ -41,6 +43,7 @@ const HobbyCardList: React.FC<HobbyCardListProps> = ({
               hobbyCard={hobbyCard}
               buttonText={buttonText}
               buttonLink={buttonLink}
+              hideFields={hideFields}
             />
           ))
         ) : (

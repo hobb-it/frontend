@@ -66,6 +66,7 @@ function ProfilePage() {
           onFilterChange={handleFilterChange}
           buttonText={'Modifica Hobby Card'}
           buttonLink={'modify/'}
+          hideFields={true}
         />
       </div>
     </div>
