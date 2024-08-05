@@ -60,7 +60,7 @@ function DashboardPage() {
     <div className="bg-light pt-1 pb-5 px-5 text-center shadow">
       <h1 className="display-4">Dashboard</h1>
       <span className="fs-5 text-muted">
-        Sceli il tuo Hobby Preferito!
+        Scegli il tuo Hobby Preferito!
       </span>
       <div id="hobbyCardContainer" className="row">
         <HobbyCardList

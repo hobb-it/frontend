@@ -1,5 +1,5 @@
 import React from "react";
-import HobbyCardComponent from "./HobbyCard"; // Assicurati che il percorso sia corretto
+import HobbyCardComponent from "./HobbyCard"; 
 import SearchBar from "./SearchBar";
 
 interface HobbyCard {
