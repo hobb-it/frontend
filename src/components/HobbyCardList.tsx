@@ -6,6 +6,7 @@ interface HobbyCard {
   categoryName: string;
   description: string;
   username: string;
+  title: string;
 }
 
 interface HobbyCardListProps {

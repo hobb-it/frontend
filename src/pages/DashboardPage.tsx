@@ -9,6 +9,7 @@ interface HobbyCard {
   categoryName: string;
   description: string;
   username: string;
+  title: string;
 }
 
 function DashboardPage() {
@@ -51,7 +52,8 @@ function DashboardPage() {
     const filteredCards = hobbyCards.filter(
       (card) =>
         card.categoryName.toLowerCase().includes(filterLowerCase) ||
-        card.description.toLowerCase().includes(filterLowerCase)
+        card.description.toLowerCase().includes(filterLowerCase) ||
+        card.title.toLowerCase().includes(filterLowerCase)
     );
     setDisplayCards(filteredCards);
   };
