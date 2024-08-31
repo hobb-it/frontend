@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Set environment variables
-ARG REACT_APP_BACKEND_URL
+ARG REACT_APP_BACKEND_URL=http://localhost:8080
 ENV REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
 
 # Build the React app

@@ -13,8 +13,7 @@ interface Props {
 
 function LoginForm({ flow }: Props) {
   const [error, setError] = useState("");
-  // const backendUrl = process.env.REACT_APP_BACKEND_URL;
-  const backendUrl = "http://localhost:8080";
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   const codeLogin = useGoogleLogin({
     onSuccess: (credentialResponse) => {
